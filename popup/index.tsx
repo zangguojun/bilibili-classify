@@ -1,18 +1,8 @@
 import { Dialog, Transition } from "@headlessui/react"
 import classnames from "classnames"
-import cssText from "data-text:~/style.css"
-import type { PlasmoContentScript } from "plasmo"
 import React, { Fragment, useState } from "react"
 
-export const config: PlasmoContentScript = {
-  matches: ["https://space.bilibili.com/*", "https://www.plasmo.com/*"]
-}
-
-export const getStyle = () => {
-  const style = document.createElement("style")
-  style.textContent = cssText
-  return style
-}
+import "~/style.css"
 
 const Index = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -21,7 +11,7 @@ const Index = () => {
   const closeModal = () => setIsOpen(false)
 
   return (
-    <>
+    <div className={classnames("w-96", "h-96")}>
       <div className={classnames("fixed", "z-50", "top-1/2", "right-0")}>
         <button
           className={classnames("w-10", "h-10")}
@@ -93,7 +83,7 @@ const Index = () => {
           </div>
         </Dialog>
       </Transition>
-    </>
+    </div>
   )
 }
 

@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@headlessui/react': ^1.6.4
   '@tailwindcss/forms': ^0.5.2
   '@tailwindcss/typography': ^0.5.2
   '@trivago/prettier-plugin-sort-imports': 3.2.0
@@ -19,6 +20,7 @@ specifiers:
   typescript: 4.7.3
 
 dependencies:
+  '@headlessui/react': 1.6.4_ef5jwxihqo6n7gxfmzogljlgcm
   '@tailwindcss/forms': 0.5.2_tailwindcss@3.1.2
   '@tailwindcss/typography': 0.5.2_tailwindcss@3.1.2
   classnames: 2.3.1
@@ -299,6 +301,17 @@ packages:
     dependencies:
       cross-spawn: 7.0.3
     dev: true
+
+  /@headlessui/react/1.6.4_ef5jwxihqo6n7gxfmzogljlgcm:
+    resolution: {integrity: sha512-0yqz1scwbFtwljmbbKjXsSGl5ABEYNICVHZnMCWo0UtOZodo2Tpu94uOVgCRjRZ77l2WcTi2S0uidINDvG7lsA==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: ^16 || ^17 || ^18
+      react-dom: ^16 || ^17 || ^18
+    dependencies:
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
+    dev: false
 
   /@jridgewell/gen-mapping/0.3.1:
     resolution: {integrity: sha512-GcHwniMlA2z+WFPWuY8lp3fsza0I8xPFMWL5+n8LYyP6PSvPrXf4+n8stDHZY2DM0zy9sVkRDy1jDI4XGzYVqg==}

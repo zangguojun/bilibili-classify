@@ -7,7 +7,13 @@ module.exports = {
     fontFamily: {
       sans: ["Inter", "sans-serif"],
       serif: ["Georgia", "serif"]
-    }
+    },
+    backgroundColor: (theme) => ({
+      ...theme("colors"),
+      primary: "#f25d8e",
+      secondary: "#ffed4a",
+      danger: "#e3342f"
+    })
   },
   variants: { extend: { typography: ["dark"] } },
   plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")]
