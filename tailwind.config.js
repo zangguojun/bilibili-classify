@@ -2,7 +2,7 @@
 module.exports = {
   mode: "jit",
   darkMode: "class",
-  content: ["./**/*.{ts,tsx}"],
+  content: ["./src/**/*.{ts,tsx}", "./routes/**/*.{ts,tsx}"],
   theme: {
     fontFamily: {
       sans: ["Inter", "sans-serif"],
@@ -10,7 +10,7 @@ module.exports = {
     },
     backgroundColor: (theme) => ({
       ...theme("colors"),
-      primary: "#f25d8e",
+      primary: "#FB7299",
       secondary: "#ffed4a",
       danger: "#e3342f"
     })
