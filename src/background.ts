@@ -1,13 +1,11 @@
 export {}
 
-chrome.runtime.onInstalled.addListener((reason) => {
-  chrome.contextMenus.create({
-    id: "about",
-    contexts: ["action"],
-    title: "Up分类"
-  })
+chrome.contextMenus.create({
+  id: "about",
+  contexts: ["action"],
+  title: "Up分类"
+})
 
-  chrome.contextMenus.onClicked.addListener(async ({ menuItemId }) => {
-    await chrome.tabs.create({ url: `/options.41e68877.html#/${menuItemId}` })
-  })
+chrome.contextMenus.onClicked.addListener(async ({ menuItemId }) => {
+  await chrome.tabs.create({ url: `/options.41e68877.html#/${menuItemId}` })
 })

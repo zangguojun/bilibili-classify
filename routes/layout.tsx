@@ -2,7 +2,7 @@ import { Disclosure, Menu, Transition } from "@headlessui/react"
 import { BellIcon } from "@heroicons/react/outline"
 import classnames from "classnames"
 import { Fragment, useState } from "react"
-import { Outlet } from "react-router-dom"
+import { NavLink, Outlet, useLocation } from "react-router-dom"
 
 import "~style.css"
 
@@ -12,8 +12,9 @@ const user = {
     "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
 }
 const navigation = [
-  { name: "Index", href: "#/" },
-  { name: "About", href: "#/about" }
+  { name: "主页", href: "/" },
+  { name: "Up分类", href: "/up" },
+  { name: "关于", href: "/about" }
 ]
 const userNavigation = [
   { name: "Your Profile", href: "#" },
@@ -30,14 +31,12 @@ const noticeClass = classnames(
 )
 
 export default () => {
-  const [curIndex, setCurIndex] = useState(0)
-
-  const getNavClass = (isCur) =>
+  const getNavClass = (isActive) =>
     classnames(
       "p-3",
       "rounded-md",
       "font-medium",
-      isCur
+      isActive
         ? ["bg-pink-600", "text-pink-100"]
         : ["text-pink-100", "hover:bg-pink-600", "hover:text-pink-100"]
     )
@@ -71,15 +70,13 @@ export default () => {
                     "ml-10",
                     "space-x-4"
                   )}>
-                  {navigation.map((item, index) => (
-                    <a
+                  {navigation.map((item) => (
+                    <NavLink
                       key={item.name}
-                      href={item.href}
-                      onClick={() => setCurIndex(index)}
-                      className={getNavClass(curIndex === index)}
-                      aria-current={curIndex === index ? "page" : undefined}>
+                      to={item.href}
+                      className={({ isActive }) => getNavClass(isActive)}>
                       {item.name}
-                    </a>
+                    </NavLink>
                   ))}
                 </div>
               </div>
@@ -179,19 +176,9 @@ export default () => {
         )}
       </Disclosure>
 
-      {/* <header className="bg-white shadow">
-        <div className="max-w-7xl mx-auto py-6 px-4">
-          <h1 className="text-3xl font-bold text-pink-900">Dashboard</h1>
-        </div>
-      </header> */}
       <main>
         <div className="max-w-7xl mx-auto py-6">
-          {/* Replace with your content */}
-          {/* <div className="px-4 py-6 sm:px-0">
-            <div className="border-4 border-dashed border-pink-200 rounded-lg h-96" />
-          </div> */}
           <Outlet />
-          {/* /End replace */}
         </div>
       </main>
     </div>
